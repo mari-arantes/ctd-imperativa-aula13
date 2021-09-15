@@ -22,6 +22,38 @@
             (  ) Saque.
         */
 
+            var contaBancaria = {
+                nome: 'José',
+                sobrenome: 'Silva',
+                numeroConta: '1234',
+                numeroAgencia: '4321',
+                saldoAtual: 100,
+                
+                depositar: function(valorDeposito){
+                this.saldoAtual = valorDeposito + this.saldoAtual
+                return `Deposito no valor de ${valorDeposito} realizado com sucesso. Valor atual: ${this.saldoAtual}`
+                },
+
+                sacar: function(valorSaque){
+                    if (this.saldoAtual >= valorSaque){
+                        this.saldoAtual = this.saldoAtual - valorSaque
+                        return `Você realizou um saque de R$${valorSaque}. Saldo atual: R$${this.saldoAtual}`
+                    }
+                    else{
+                        return `Saldo insuficiente! Seu Saldo Atual é de R$ ${this.saldoAtual}.`
+                    }
+                },
+
+            }
+
+            console.log('Saldo Atual:', `R$ ${contaBancaria.saldoAtual}`);
+            console.log('----------------');
+            console.log('Depósito:', contaBancaria.depositar(100));
+            console.log('----------------');
+            console.log('Saque:', contaBancaria.sacar(300));
+            console.log('Saque:', contaBancaria.sacar(200));
+            
+
         /*
             Atividade II: Adicione funcionalidades ao Objeto Literal.
             (  ) O usuário deve ser capaz de visualizar seu Saldo Atual.
@@ -35,10 +67,17 @@
             - Saldo insuficiente! Seu Saldo Atual é de R$ ${this.saldoAtual}.
         */
 
+
+
         /*
             Atividade III: Converta os valores em texto JSON
             (  ) Converta o resultado o objeto literal em JSON.
         */
+
+        var converterParaJSON = JSON.stringify(contaBancaria)
+
+        console.log('----------------');
+        console.log('Valor convertido em JSON:', converterParaJSON);
 
     </script>
 </body>
